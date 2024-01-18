@@ -1,0 +1,35 @@
+package tests;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import pages.Search_TRN_ViewChecking_Page;
+
+public class Search_TRN_View_Checking_Test<logger> extends TestBase {
+
+	Search_TRN_ViewChecking_Page strn;
+	SignInPage sip;
+	
+	@BeforeMethod
+	public void setup()
+	{
+		Object driver = null;
+		sip=new SignInPage();
+		strn = new Search_TRN_ViewChecking_Page(driver);
+		sip.enterSignInDetails();
+	}
+	
+	
+	public <logger> void testSearchTRN_ViewChecking()
+	{
+		String expected_txt = "No matching records found";
+		strn.clickonCheckingPage();
+		strn.searchtrn("845586594");
+	
+	}
+	
+	@AfterMethod
+	public void logout()
+	{
+		sip.logout();
+	}
+}
