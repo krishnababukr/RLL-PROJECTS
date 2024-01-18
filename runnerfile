@@ -1,0 +1,42 @@
+TestNGRunner
+
+
+package runner;
+import io.cucumber.junit.CucumberOptions;
+
+//@RunWith(Cucumber.class)
+//@Listeners(value= {ITestListenerClass.class})
+@CucumberOptions(features="C:\\Users\\HP\\eclipse-workspace\\RLL_dbankdemo\\src\\test\\java\\features",
+glue={"stepDefinitions","pages"},
+plugin= {"pretty","html:target/sample.html",
+		"json:target/stepdefinition.json","junit:target/stepReport.xml",
+		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:targer/extentsampleReport.html"},
+		monochrome =true)
+
+public class TestNGRunner extends AbstractTestNGCucumberTests  
+{
+	//Runs each cucumber scenario found in the features as separated test
+	
+}
+=====================================================================================================
+textng.xml
+
+
+<suite name="test1" verbose="1">
+
+	<listeners>
+    	<listener class-name="utilities.ITestListenerClass"></listener>
+    	<!-- <listener class-name="utilities.TestRetryAnalyzerListener"></listener> -->
+	</listeners>
+	
+	<test name="POMframework">
+		<classes>
+			
+			<class name="tests.Search_TRN_View_Checking_Test"></class>
+			
+			
+			<!--class name="com.ninjademo.qa.testpages.TestProductPage"></class>-->
+
+		</classes>
+	</test>
+</suite>
